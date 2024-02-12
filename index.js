@@ -42,13 +42,13 @@ function calculateSpeed() {
 
     testCompleted++;
 
-    // If all tests completed (we get 5 image then calculate average)
+    // klo semua test selesai (kita dapet 5 image then calculate average)
     if (testCompleted === numTests) {
         let averageSpeedInBps = (totalBitSpeed / numTests).toFixed(2);
         let averageSpeedInKbps = (totalKbSpeed / numTests).toFixed(2);
         let averageSpeedInMbps = (totalMbSpeed / numTests).toFixed(2);
 
-        // Display average speeds
+        // buat nampil average speeds
         bitSpeed.innerHTML += `${averageSpeedInBps}`;
         kbSpeed.innerHTML += `${averageSpeedInKbps}`;
         mbSpeed.innerHTML += `${averageSpeedInMbps}`;
@@ -73,3 +73,26 @@ window.onload = () => {
         init();
     }
 };
+
+let startButton = document.getElementById("startButton");
+
+// Menambahkan event listener ke tombol Mulai
+startButton.addEventListener("click", function() {
+    // Reset nilai-nilai yang diperlukan sebelum memulai tes
+    totalBitSpeed = 0;
+    totalKbSpeed = 0;
+    totalMbSpeed = 0;
+    testCompleted = 0;
+
+    // Memanggil fungsi init() untuk memulai tes
+    for (let i = 0; i < numTests; i++) {
+        init();
+    }
+
+    // Membersihkan teks pada elemen hasil tes sebelumnya
+    bitSpeed.innerHTML = "Speed In Bits: ";
+    kbSpeed.innerHTML = "Speed In Kbs: ";
+    mbSpeed.innerHTML = "Speed In Mbs: ";
+    info.innerHTML = "Testing...";
+
+});

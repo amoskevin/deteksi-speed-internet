@@ -41,3 +41,19 @@ span{
     font-weight: 400;
     color: #090931;
 }
+
+button {
+    background-color: #075985;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px; /* Tambahkan margin-top sesuai kebutuhan Anda */
+}
+
+/* Gaya hover saat kursor berada di atas tombol */
+button:hover {
+    background-color: #064d70;
+}
